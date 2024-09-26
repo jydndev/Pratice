@@ -24,3 +24,18 @@ async function fecthData() {
     console.error('Error:', err);
   }
 }
+
+// fetch user data
+const fetchUserData = async (userId) => {
+  try {
+    const res = await fetch(`https://api.example.com/users/${userId}`);
+    if (!res.ok) {
+      throw new Error('User not found');
+    }
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.error('Error fetching user data:', error);
+    return null;
+  }
+};
